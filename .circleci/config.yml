@@ -1,9 +1,13 @@
 version: 2.1
 
+orbs: 
+  sonarcloud: sonarsource/sonarcloud@1.0.3
+  
 workflows:
   test-deploy:
     jobs:
       - test
+        context: sonarcloud
 
 jobs:
  test:
@@ -16,5 +20,6 @@ jobs:
          command: npm install
      - run:
          name: Run Tests
-         command: npm run test 
+         command: npm run test     
+     - sonarcloud/scan
 
