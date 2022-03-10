@@ -19,4 +19,6 @@ jobs:
          name: Insall Dependencies
          command: npm install
      - run:
-         name: Run Testt
+          name: Run Tests
+          command: npm run test     
+     - sonarcloud/scan
