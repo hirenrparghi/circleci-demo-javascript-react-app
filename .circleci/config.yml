@@ -7,7 +7,7 @@ workflows:
   test-deploy:
     jobs:
       - test
-          context: sonarcloud
+          
 
 jobs:
  test:
