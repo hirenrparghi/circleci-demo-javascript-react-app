@@ -12,10 +12,8 @@ jobs:
      - sonarcloud/scan
 
 workflows:
-  test-deploy:
+ main:
     jobs:
-      - test:
+      - build:
           context: sonarcloud
-          filters:
-            branches:
-              only: master
+          
