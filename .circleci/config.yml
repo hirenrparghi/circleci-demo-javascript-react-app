@@ -15,7 +15,7 @@ workflows:
   test-deploy:
     jobs:
       - test:
-          context: SonarCloud
+          context: sonarcloud
           filters:
             branches:
               only: master
