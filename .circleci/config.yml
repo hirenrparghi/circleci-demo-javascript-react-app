@@ -17,9 +17,8 @@ jobs:
           command: npm run test     
      - sonarcloud/scan
 workflows:
-    main:
-       test-deploy:
-         jobs:
-          - test:
-              context: sonarcloud
+  main:
+    jobs:
+      - test:
+           context: sonarcloud
           
