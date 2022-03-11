@@ -10,15 +10,16 @@ jobs:
    steps:
      - checkout
      - run:
-         name: Insall Dependencies
-         command: npm install
-     - run:
           name: Run Tests
           command: npm run test     
      - sonarcloud/scan
 workflows:
   test-deploy:
+  on:
+   pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
     jobs:
-      - test:
+    - test:
           context: sonarcloud
-          
