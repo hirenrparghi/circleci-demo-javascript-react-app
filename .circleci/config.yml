@@ -1,17 +1,19 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: 'node:latest'
-    steps:
-      - checkout
-      - sonarcloud/scan
-orbs:
+orbs: 
   sonarcloud: sonarsource/sonarcloud@1.0.3
-version: 2.1
+
+jobs:
+ test:
+   docker:
+     - image: cimg/node:14.13.0
+   steps:
+     - checkout
+     - sonarcloud/scan
+
 workflows:
-  main:
+  test-deploy:
     jobs:
-      - build:
+      - test:
           context: sonarcloud
+          
